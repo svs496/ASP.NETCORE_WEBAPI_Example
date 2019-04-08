@@ -1,0 +1,12 @@
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\bin\Debug\netcoreapp2.2\TaskManager.LoggerService.deps.json
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\bin\Debug\netcoreapp2.2\TaskManager.LoggerService.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\bin\Debug\netcoreapp2.2\TaskManager.LoggerService.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\bin\Debug\netcoreapp2.2\TaskManager.Contracts.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\bin\Debug\netcoreapp2.2\TaskManager.Contracts.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.csprojAssemblyReference.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.csproj.CoreCompileInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.AssemblyInfoInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.AssemblyInfo.cs
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.csproj.CopyComplete
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\LoggerService\obj\Debug\netcoreapp2.2\TaskManager.LoggerService.pdb
