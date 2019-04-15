@@ -3504,11 +3504,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.DataLayer\\TaskManager.DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.DataLayer\\TaskManager.DataLayer.csproj",
       "projectName": "TaskManager.DataLayer",
-      "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.DataLayer\\TaskManager.DataLayer.csproj",
+      "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.DataLayer\\TaskManager.DataLayer.csproj",
       "packagesPath": "C:\\Users\\sbhatia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.DataLayer\\obj\\",
+      "outputPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3527,11 +3527,11 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj": {
-              "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj"
+            "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj": {
+              "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj"
             },
-            "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj": {
-              "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj"
+            "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj": {
+              "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj"
             }
           }
         }

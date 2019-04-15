@@ -11,5 +11,9 @@ namespace TaskManager.Contracts
         void Add(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
+        IEnumerable<TEntity> GetParentTasks();
+
+        bool ChildTaskExits(long taskId);
+
     }
 }

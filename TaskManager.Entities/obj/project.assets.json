@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj",
+      "projectUniqueName": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj",
       "projectName": "TaskManager.Entities",
-      "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj",
+      "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.Entities\\TaskManager.Entities.csproj",
       "packagesPath": "C:\\Users\\sbhatia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\TaskManager.Entities\\obj\\",
+      "outputPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\TaskManager.Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

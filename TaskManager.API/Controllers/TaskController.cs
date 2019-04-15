@@ -38,7 +38,8 @@ namespace TaskManager.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
-        
+
+
         // GET: api/Task/5
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
@@ -77,11 +78,22 @@ namespace TaskManager.API.Controllers
                     return BadRequest("Task is null.");
                 }
 
-                _dataRepository.Add(task);
+                //Map is needed as input param has taskId null
+                Entities.Task newTaskToAdd = new Entities.Task
+                {
+                    EndDate = task.EndDate.Date,
+                    ParentTaskId = task.ParentTaskId,
+                    Priority = task.Priority,
+                    StartDate = task.StartDate.Date,
+                    Status = task.Status,
+                    TaskName = task.TaskName
+                };
+
+                _dataRepository.Add(newTaskToAdd);
                 return CreatedAtRoute(
                       "Get",
-                      new { Id = task.TaskId },
-                      task);
+                      new { Id = newTaskToAdd.TaskId },
+                      newTaskToAdd);
             }
             catch (Exception ex)
             {
@@ -98,11 +110,12 @@ namespace TaskManager.API.Controllers
             try
             {
 
-                if (task == null)
+                if (task == null || id != task.TaskId)
                 {
                     _logger.LogInfo($"Inside Put : {id} not found");
-                    return BadRequest("Task is null.");
+                    return BadRequest("TaskId is null.");
                 }
+
 
                 _dataRepository.Update(task);
                 return NoContent();
@@ -121,6 +134,12 @@ namespace TaskManager.API.Controllers
         {
             try
             {
+                // DO do not delete Task which has child
+                if (_dataRepository.ChildTaskExits(id))
+                {
+                    return Conflict(new { customMessage = $" Delete Conflict. Task # '{id}' has child tasks." });
+                }
+
                 Entities.Task task = _dataRepository.Get(id);
 
                 if (task == null)

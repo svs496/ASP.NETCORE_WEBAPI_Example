@@ -1068,11 +1068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\LoggerService\\TaskManager.LoggerService.csproj",
+      "projectUniqueName": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\LoggerService\\TaskManager.LoggerService.csproj",
       "projectName": "TaskManager.LoggerService",
-      "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\LoggerService\\TaskManager.LoggerService.csproj",
+      "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\LoggerService\\TaskManager.LoggerService.csproj",
       "packagesPath": "C:\\Users\\sbhatia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\LoggerService\\obj\\",
+      "outputPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\LoggerService\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1091,8 +1091,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj": {
-              "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\IIHT_CAPSULE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj"
+            "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj": {
+              "projectPath": "C:\\Users\\sbhatia\\Desktop\\desktop items\\1.FSE\\Capsule_423050_BackEnd\\Contracts\\TaskManager.Contracts.csproj"
             }
           }
         }

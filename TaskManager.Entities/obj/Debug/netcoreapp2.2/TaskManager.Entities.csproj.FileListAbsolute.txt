@@ -7,3 +7,12 @@ C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.AssemblyInfo.cs
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.dll
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\bin\Debug\netcoreapp2.2\TaskManager.Entities.deps.json
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\bin\Debug\netcoreapp2.2\TaskManager.Entities.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\bin\Debug\netcoreapp2.2\TaskManager.Entities.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.csprojAssemblyReference.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.csproj.CoreCompileInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.AssemblyInfoInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.AssemblyInfo.cs
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.pdb

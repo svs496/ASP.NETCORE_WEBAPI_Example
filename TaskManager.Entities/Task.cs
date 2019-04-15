@@ -28,6 +28,13 @@ namespace TaskManager.Entities
         public int ? Priority { get; set; }
 
         public Statuses ? Status { get; set; }
+
+        [NotMapped]
+        public string ParentTaskName { get; set; }
+
+        public DateTime CreateTime { get; set; }
+
+        public DateTime ? ModifyDate { get; set; }
     }
 
     public enum Statuses

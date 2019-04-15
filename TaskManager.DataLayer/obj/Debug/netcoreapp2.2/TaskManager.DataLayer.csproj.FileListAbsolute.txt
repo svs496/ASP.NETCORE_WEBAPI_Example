@@ -12,3 +12,17 @@ C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.pdb
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.Contracts.dll
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\IIHT_CAPSULE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.Contracts.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.DataLayer.deps.json
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.DataLayer.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.DataLayer.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.Contracts.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.Entities.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.Contracts.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\bin\Debug\netcoreapp2.2\TaskManager.Entities.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.csprojAssemblyReference.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.AssemblyInfoInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.AssemblyInfo.cs
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.csproj.CopyComplete
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.DataLayer\obj\Debug\netcoreapp2.2\TaskManager.DataLayer.pdb
