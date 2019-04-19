@@ -5,13 +5,15 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.API", "TaskManager.API\TaskManager.API.csproj", "{BC4503D6-6931-4AD6-BC7D-3A61456EFDEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Contracts", "Contracts\TaskManager.Contracts.csproj", "{ABE8FB79-93D1-4568-9DFC-18BC2ACCF040}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Contracts", "Contracts\TaskManager.Contracts.csproj", "{ABE8FB79-93D1-4568-9DFC-18BC2ACCF040}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.LoggerService", "LoggerService\TaskManager.LoggerService.csproj", "{9C9778F9-81B6-4ED2-9577-8E2914B64BEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.LoggerService", "LoggerService\TaskManager.LoggerService.csproj", "{9C9778F9-81B6-4ED2-9577-8E2914B64BEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Entities", "TaskManager.Entities\TaskManager.Entities.csproj", "{7634E9E0-1D74-49B2-B975-7296461A2CA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Entities", "TaskManager.Entities\TaskManager.Entities.csproj", "{7634E9E0-1D74-49B2-B975-7296461A2CA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.DataLayer", "TaskManager.DataLayer\TaskManager.DataLayer.csproj", "{BEE3FD61-08F1-4541-B846-984FFBE27C89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.DataLayer", "TaskManager.DataLayer\TaskManager.DataLayer.csproj", "{BEE3FD61-08F1-4541-B846-984FFBE27C89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.XUnit.Tests", "TaskManager.XUnit.Tests\TaskManager.XUnit.Tests.csproj", "{1197FE83-D3AE-4881-AE70-98B0C00F256A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BEE3FD61-08F1-4541-B846-984FFBE27C89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEE3FD61-08F1-4541-B846-984FFBE27C89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEE3FD61-08F1-4541-B846-984FFBE27C89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1197FE83-D3AE-4881-AE70-98B0C00F256A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1197FE83-D3AE-4881-AE70-98B0C00F256A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1197FE83-D3AE-4881-AE70-98B0C00F256A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1197FE83-D3AE-4881-AE70-98B0C00F256A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

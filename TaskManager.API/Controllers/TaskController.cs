@@ -72,6 +72,12 @@ namespace TaskManager.API.Controllers
             try
             {
 
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
                 if (task == null)
                 {
                     _logger.LogInfo($"Inside Post : Task is null");
@@ -97,7 +103,7 @@ namespace TaskManager.API.Controllers
             }
             catch (Exception ex)
             {
-
+                
                 _logger.LogError($"Post API Call failed: {ex}");
                 return StatusCode(500, "Internal server error");
             }
@@ -109,14 +115,17 @@ namespace TaskManager.API.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
                 if (task == null || id != task.TaskId)
                 {
                     _logger.LogInfo($"Inside Put : {id} not found");
                     return BadRequest("TaskId is null.");
                 }
-
-
+                
                 _dataRepository.Update(task);
                 return NoContent();
             }
@@ -134,11 +143,6 @@ namespace TaskManager.API.Controllers
         {
             try
             {
-                // DO do not delete Task which has child
-                if (_dataRepository.ChildTaskExits(id))
-                {
-                    return Conflict(new { customMessage = $" Delete Conflict. Task # '{id}' has child tasks." });
-                }
 
                 Entities.Task task = _dataRepository.Get(id);
 
@@ -148,6 +152,13 @@ namespace TaskManager.API.Controllers
                     return NotFound("The Task record couldn't be found.");
                 }
 
+
+                // DO do not delete Task which has child
+                if (_dataRepository.ChildTaskExits(id))
+                {
+                    return Conflict(new { customMessage = $" Delete Conflict. Task # '{id}' has child tasks." });
+                }
+                
                 _dataRepository.Delete(task);
                 return NoContent();
             }

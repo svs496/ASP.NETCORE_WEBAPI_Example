@@ -25,6 +25,7 @@ namespace TaskManager.Entities
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime EndDate { get; set; }
 
+        [Range(0,30)]
         public int ? Priority { get; set; }
 
         public Statuses ? Status { get; set; }

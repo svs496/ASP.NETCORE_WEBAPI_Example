@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,7 @@ namespace TaskManager.DataLayer
                          {
                              TaskId = q.TaskId,
                              TaskName = q.TaskName
-                         }).Distinct().ToList();
+                         }).Distinct().AsNoTracking().ToList();
 
 
             return _context.Tasks
@@ -39,13 +40,14 @@ namespace TaskManager.DataLayer
                                          CreateTime = m.CreateTime,  
                                          ParentTaskName = query.Where (p => p.TaskId == m.ParentTaskId).Select (p => p.TaskName).FirstOrDefault() })
                 .OrderByDescending( s => s.CreateTime).ThenByDescending (z => z.ModifyDate)
+                .AsNoTracking()
                 .ToList();
         }
 
         public Task Get(long id)
         {
-            return _context.Tasks
-                  .FirstOrDefault(e => e.TaskId == id);
+            return _context.Tasks.AsNoTracking()
+                  .Where(e => e.TaskId == id).FirstOrDefault();
         }
 
         public void Add(Task entity)
@@ -71,7 +73,7 @@ namespace TaskManager.DataLayer
         public IEnumerable<Task> GetParentTasks()
         {
           return  _context.Tasks.Select(p => new Task { TaskId = p.TaskId, TaskName = p.TaskName })
-                .Distinct().OrderBy(k => k.TaskName).ToList();
+                .Distinct().OrderBy(k => k.TaskName).AsNoTracking().ToList();
         }
 
         public bool ChildTaskExits(long taskId)

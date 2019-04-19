@@ -1,0 +1,9 @@
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\bin\Release\netcoreapp2.2\TaskManager.Contracts.deps.json
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\bin\Release\netcoreapp2.2\TaskManager.Contracts.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\bin\Release\netcoreapp2.2\TaskManager.Contracts.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Release\netcoreapp2.2\TaskManager.Contracts.csprojAssemblyReference.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Release\netcoreapp2.2\TaskManager.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Release\netcoreapp2.2\TaskManager.Contracts.AssemblyInfoInputs.cache
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Release\netcoreapp2.2\TaskManager.Contracts.AssemblyInfo.cs
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Release\netcoreapp2.2\TaskManager.Contracts.dll
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Release\netcoreapp2.2\TaskManager.Contracts.pdb
