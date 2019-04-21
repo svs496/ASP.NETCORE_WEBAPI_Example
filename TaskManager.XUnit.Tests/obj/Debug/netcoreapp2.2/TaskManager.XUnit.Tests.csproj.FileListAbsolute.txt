@@ -14,8 +14,8 @@ C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\bin\Debug\netcoreapp2.2\TaskManager.Contracts.pdb
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\bin\Debug\netcoreapp2.2\TaskManager.LoggerService.pdb
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\bin\Debug\netcoreapp2.2\TaskManager.API.pdb
-C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\bin\Debug\netcoreapp2.2\TaskManager.Entities.pdb
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\bin\Debug\netcoreapp2.2\TaskManager.DataLayer.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\bin\Debug\netcoreapp2.2\TaskManager.Entities.pdb
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\obj\Debug\netcoreapp2.2\TaskManager.XUnit.Tests.csprojAssemblyReference.cache
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\obj\Debug\netcoreapp2.2\TaskManager.XUnit.Tests.csproj.CoreCompileInputs.cache
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.XUnit.Tests\obj\Debug\netcoreapp2.2\TaskManager.XUnit.Tests.AssemblyInfoInputs.cache

@@ -12,6 +12,7 @@
           "Microsoft.NET.Test.Sdk": "15.9.0",
           "TaskManager.API": "1.0.0",
           "TaskManager.Contracts": "1.0.0",
+          "TaskManager.DataLayer": "1.0.0",
           "TaskManager.Entities": "1.0.0",
           "TaskManager.LoggerService": "1.0.0",
           "xunit": "2.4.0",

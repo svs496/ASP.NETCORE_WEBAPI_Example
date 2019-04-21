@@ -17,6 +17,7 @@
     <ProjectReference Include="..\Contracts\TaskManager.Contracts.csproj" />
     <ProjectReference Include="..\LoggerService\TaskManager.LoggerService.csproj" />
     <ProjectReference Include="..\TaskManager.API\TaskManager.API.csproj" />
+    <ProjectReference Include="..\TaskManager.DataLayer\TaskManager.DataLayer.csproj" />
     <ProjectReference Include="..\TaskManager.Entities\TaskManager.Entities.csproj" />
   </ItemGroup>
 
