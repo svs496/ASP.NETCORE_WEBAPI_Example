@@ -18,10 +18,12 @@ namespace TaskManager.Entities
         public long ? ParentTaskId { get; set; }
 
         [Required]
+        [Column(TypeName = "date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime StartDate { get; set; }
 
         [Required]
+        [Column(TypeName = "date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime EndDate { get; set; }
 
@@ -33,9 +35,17 @@ namespace TaskManager.Entities
         [NotMapped]
         public string ParentTaskName { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime CreateTime { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime ? ModifyDate { get; set; }
+
+
+        public long ProjectId { get; set; }
+        public Project Project { get; set; }
+
+        public User User { get; set; }
     }
 
     public enum Statuses

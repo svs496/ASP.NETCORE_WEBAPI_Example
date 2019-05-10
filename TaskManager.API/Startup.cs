@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using NLog;
 using TaskManager.DataLayer;
 using Microsoft.EntityFrameworkCore;
+using TaskManager.Entities;
 
 namespace TaskManager.API
 {
@@ -42,11 +43,15 @@ namespace TaskManager.API
                     .AllowCredentials());
             });
 
-            services.AddDbContext<TaskManagerContext>(options =>
+            services.AddDbContext<ProjectTaskManagerContext>(options =>
                     options.UseSqlServer(
                         Configuration.GetConnectionString("TaskConnectionString")));
 
             services.AddScoped<IDataRepository<Entities.Task>, TaskManagerRepository>();
+
+            services.AddScoped<IDataRepository<Project>, ProjectRepository>();
+
+            services.AddScoped<IDataRepository<User>, UserRepository>();
 
             services.Configure<IISOptions>(options =>
             {

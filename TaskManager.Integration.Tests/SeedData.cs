@@ -5,7 +5,7 @@ namespace TaskManager.Integration.Tests
 {
     public static class SeedData
     {
-        public static void PopulateTestData(TaskManagerContext dbContext)
+        public static void PopulateTestData(ProjectTaskManagerContext dbContext)
         {
             dbContext.Tasks.Add(new Entities.Task
             {

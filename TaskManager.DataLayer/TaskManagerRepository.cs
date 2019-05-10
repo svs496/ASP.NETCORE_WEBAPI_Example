@@ -10,9 +10,9 @@ namespace TaskManager.DataLayer
 {
     public class TaskManagerRepository : IDataRepository<Task>
     {
-        readonly TaskManagerContext _context;
+        readonly ProjectTaskManagerContext _context;
 
-        public TaskManagerRepository(TaskManagerContext context)
+        public TaskManagerRepository(ProjectTaskManagerContext context)
         {
             _context = context;
         }

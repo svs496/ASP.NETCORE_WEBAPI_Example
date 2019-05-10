@@ -6,14 +6,16 @@ using TaskManager.Entities;
 
 namespace TaskManager.DataLayer
 {
-    public class TaskManagerContext : DbContext
+    public class ProjectTaskManagerContext : DbContext
     {
-        public TaskManagerContext(DbContextOptions<TaskManagerContext> options)
+        public ProjectTaskManagerContext(DbContextOptions<ProjectTaskManagerContext> options)
             : base(options)
         {
         }
 
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Project> Projects { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

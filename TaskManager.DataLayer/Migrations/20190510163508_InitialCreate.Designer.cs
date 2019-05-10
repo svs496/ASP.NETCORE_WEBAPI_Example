@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManager.DataLayer;
 
 namespace TaskManager.DataLayer.Migrations
 {
     [DbContext(typeof(ProjectTaskManagerContext))]
-    partial class TaskManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20190510163508_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,20 +50,16 @@ namespace TaskManager.DataLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("date");
+                    b.Property<DateTime>("CreateTime");
 
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("date");
 
-                    b.Property<DateTime?>("ModifyDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifyDate");
 
                     b.Property<long?>("ParentTaskId");
 
                     b.Property<int?>("Priority");
-
-                    b.Property<long>("ProjectId");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("date");
@@ -74,14 +72,12 @@ namespace TaskManager.DataLayer.Migrations
 
                     b.HasKey("TaskId");
 
-                    b.HasIndex("ProjectId");
-
                     b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("TaskManager.Entities.User", b =>
                 {
-                    b.Property<long>("UserId")
+                    b.Property<long>("ProjectId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -96,30 +92,9 @@ namespace TaskManager.DataLayer.Migrations
                         .IsRequired()
                         .HasMaxLength(40);
 
-                    b.Property<long>("TaskId");
-
-                    b.HasKey("UserId");
-
-                    b.HasIndex("TaskId")
-                        .IsUnique();
+                    b.HasKey("ProjectId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("TaskManager.Entities.Task", b =>
-                {
-                    b.HasOne("TaskManager.Entities.Project", "Project")
-                        .WithMany("Tasks")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("TaskManager.Entities.User", b =>
-                {
-                    b.HasOne("TaskManager.Entities.Task", "Task")
-                        .WithOne("User")
-                        .HasForeignKey("TaskManager.Entities.User", "TaskId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

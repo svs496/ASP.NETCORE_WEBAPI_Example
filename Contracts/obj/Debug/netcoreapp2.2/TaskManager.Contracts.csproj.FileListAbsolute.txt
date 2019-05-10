@@ -15,3 +15,4 @@ C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\ob
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Debug\netcoreapp2.2\TaskManager.Contracts.AssemblyInfo.cs
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Debug\netcoreapp2.2\TaskManager.Contracts.dll
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Debug\netcoreapp2.2\TaskManager.Contracts.pdb
+C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\Contracts\obj\Debug\netcoreapp2.2\TaskManager.Contracts.csprojAssemblyReference.cache

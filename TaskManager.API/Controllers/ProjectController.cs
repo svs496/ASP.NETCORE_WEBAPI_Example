@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TaskManager.Contracts;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using TaskManager.Contracts;
+using TaskManager.DataLayer;
+using TaskManager.Entities;
 
 namespace TaskManager.API.Controllers
 {
-    [Route("api/task")]
+    [Route("api/project")]
     [ApiController]
-    public class TaskController : ControllerBase
+    public class ProjectController : ControllerBase
     {
         readonly ILoggerManager _logger;
 
-        readonly IDataRepository<Entities.Task> _dataRepository;
+        readonly IDataRepository<Project> _dataRepository;
 
-        public TaskController(ILoggerManager logger, IDataRepository<Entities.Task> Repository)
+        public ProjectController(ILoggerManager logger, IDataRepository<Project> Repository)
         {
             _logger = logger;
             _dataRepository = Repository;
         }
-        // GET api/Task
+
+        // GET: api/Project
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
                 _logger.LogInfo("Inside Get All API Call.");
-                IEnumerable<Entities.Task> tasks = _dataRepository.GetAll();
-                return Ok(tasks);
+                IEnumerable<Project> projects = _dataRepository.GetAll();
+                return Ok(projects);
             }
             catch (Exception ex)
             {
@@ -39,23 +43,22 @@ namespace TaskManager.API.Controllers
             }
         }
 
-
-        // GET: api/Task/5
+        // GET: api/Project/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             try
             {
-                
-                Entities.Task task = _dataRepository.Get(id);
 
-                if (task == null)
+                Project proj = _dataRepository.Get(id);
+
+                if (proj == null)
                 {
                     _logger.LogInfo($"Inside GetById : {id} not found");
-                    return NotFound("The task record couldn't be found.");
+                    return NotFound("The project record couldn't be found.");
                 }
 
-                return Ok(task);
+                return Ok(proj);
             }
             catch (Exception ex)
             {
@@ -65,54 +68,11 @@ namespace TaskManager.API.Controllers
             }
         }
 
-        // POST api/Task
-        [HttpPost]
-        public IActionResult Post([FromBody] Entities.Task task)
-        {
-            try
-            {
-
-                if (!ModelState.IsValid)
-                {
-                    return BadRequest(ModelState);
-                }
-
-
-                if (task == null)
-                {
-                    _logger.LogInfo($"Inside Post : Task is null");
-                    return BadRequest("Task is null.");
-                }
-
-                //Map is needed as input param has taskId null
-                Entities.Task newTaskToAdd = new Entities.Task
-                {
-                    EndDate = task.EndDate.Date,
-                    ParentTaskId = task.ParentTaskId,
-                    Priority = task.Priority,
-                    StartDate = task.StartDate.Date,
-                    Status = task.Status,
-                    TaskName = task.TaskName
-                };
-
-                _dataRepository.Add(newTaskToAdd);
-                return CreatedAtRoute(
-                      "Get",
-                      new { Id = newTaskToAdd.TaskId },
-                      newTaskToAdd);
-            }
-            catch (Exception ex)
-            {
-                
-                _logger.LogError($"Post API Call failed: {ex}");
-                return StatusCode(500, "Internal server error");
-            }
-        }
-
-        // PUT api/Task/5
+        // PUT: api/Project/5
         [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody] Entities.Task task)
+        public IActionResult Put(long id, [FromBody] Project project)
         {
+
             try
             {
                 if (!ModelState.IsValid)
@@ -120,13 +80,13 @@ namespace TaskManager.API.Controllers
                     return BadRequest(ModelState);
                 }
 
-                if (task == null || id != task.TaskId)
+                if (project == null || id != project.ProjectId)
                 {
                     _logger.LogInfo($"Inside Put : {id} not found");
-                    return BadRequest("TaskId is null.");
+                    return BadRequest("Id is null.");
                 }
-                
-                _dataRepository.Update(task);
+
+                _dataRepository.Update(project);
                 return NoContent();
             }
             catch (Exception ex)
@@ -137,28 +97,70 @@ namespace TaskManager.API.Controllers
             }
         }
 
-        // DELETE api/Task/5
+        // POST: api/Project
+        [HttpPost]
+        public IActionResult Post([FromBody] Project project)
+        {
+            try
+            {
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+
+                if (project == null)
+                {
+                    _logger.LogInfo($"Inside Post : project is null");
+                    return BadRequest("project is null.");
+                }
+
+                //Map is needed as input param has taskId null
+                Project newProj = new Project
+                {
+                    EndDate = project.EndDate.Date,
+                    Priority = project.Priority,
+                    StartDate = project.StartDate.Date,
+                    ProjectName = project.ProjectName.ToUpper()
+                };
+
+                _dataRepository.Add(newProj);
+                return CreatedAtRoute(
+                      "Get",
+                      new { Id = newProj.ProjectId },
+                      newProj);
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError($"Post API Call failed: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        // DELETE: api/Project/5
         [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
             try
             {
 
-                Entities.Task task = _dataRepository.Get(id);
+                Project task = _dataRepository.Get(id);
 
                 if (task == null)
                 {
                     _logger.LogInfo($"Inside Delete : {id} not found");
-                    return NotFound("The Task record couldn't be found.");
+                    return NotFound("The project record couldn't be found.");
                 }
 
 
                 // DO do not delete Task which has child
                 if (_dataRepository.ChildTaskExits(id))
                 {
-                    return Conflict(new { customMessage = $" Delete Conflict. Task # '{id}' has child tasks." });
+                   //
                 }
-                
+
                 _dataRepository.Delete(task);
                 return NoContent();
             }
@@ -168,5 +170,6 @@ namespace TaskManager.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
     }
 }

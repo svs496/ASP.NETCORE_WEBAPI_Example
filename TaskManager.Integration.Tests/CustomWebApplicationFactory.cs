@@ -21,7 +21,7 @@ namespace TaskManager.Integration.Tests
                     .BuildServiceProvider();
 
                 // Add a database context (AppDbContext) using an in-memory database for testing.
-                services.AddDbContext<TaskManagerContext>(options =>
+                services.AddDbContext<ProjectTaskManagerContext>(options =>
                 {
                     options.UseInMemoryDatabase("InMemoryAppDb");
                     options.UseInternalServiceProvider(serviceProvider);
@@ -34,7 +34,7 @@ namespace TaskManager.Integration.Tests
                 using (var scope = sp.CreateScope())
                 {
                     var scopedServices = scope.ServiceProvider;
-                    var appDb = scopedServices.GetRequiredService<TaskManagerContext>();
+                    var appDb = scopedServices.GetRequiredService<ProjectTaskManagerContext>();
 
                     var logger = scopedServices.GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
 
