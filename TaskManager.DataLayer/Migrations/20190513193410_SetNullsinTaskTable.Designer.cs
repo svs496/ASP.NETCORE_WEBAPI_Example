@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManager.DataLayer;
 
 namespace TaskManager.DataLayer.Migrations
 {
     [DbContext(typeof(ProjectTaskManagerContext))]
-    partial class TaskManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20190513193410_SetNullsinTaskTable")]
+    partial class SetNullsinTaskTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,12 +39,7 @@ namespace TaskManager.DataLayer.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("date");
 
-                    b.Property<long?>("UserId")
-                        .HasColumnName("ManagerId");
-
                     b.HasKey("ProjectId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Projects");
                 });
@@ -110,13 +107,6 @@ namespace TaskManager.DataLayer.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("TaskManager.Entities.Project", b =>
-                {
-                    b.HasOne("TaskManager.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("TaskManager.Entities.Task", b =>

@@ -34,5 +34,9 @@ namespace TaskManager.Entities
 
         public ICollection<Task> Tasks { get; set; }
 
+        [Column("ManagerId")]
+        public long? UserId { get; set; }
+        public User User { get; set; }
+
     }
 }

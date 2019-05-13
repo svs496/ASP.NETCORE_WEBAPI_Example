@@ -93,7 +93,8 @@ namespace TaskManager.API.Controllers
                     StartDate = task.StartDate.Date,
                     Status = task.Status,
                     TaskName = task.TaskName,
-                    ProjectId = task.ProjectId
+                    ProjectId = task.ProjectId,
+                    UserId = task.UserId
                 };
 
                 _dataRepository.Add(newTaskToAdd);

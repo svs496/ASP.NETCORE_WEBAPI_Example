@@ -42,10 +42,10 @@ namespace TaskManager.Entities
         public DateTime ? ModifyDate { get; set; }
 
 
-        public long ProjectId { get; set; }
+        public long ? ProjectId { get; set; }
         public Project Project { get; set; }
 
-        public long UserId { get; set; }
+        public long ? UserId { get; set; }
         public User User { get; set; }
     }
 

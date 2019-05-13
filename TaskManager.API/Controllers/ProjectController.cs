@@ -122,7 +122,8 @@ namespace TaskManager.API.Controllers
                     EndDate = project.EndDate.Date,
                     Priority = project.Priority,
                     StartDate = project.StartDate.Date,
-                    ProjectName = project.ProjectName.ToUpper()
+                    ProjectName = project.ProjectName.ToUpper(),
+                    UserId = project.UserId
                 };
 
                 _dataRepository.Add(newProj);
