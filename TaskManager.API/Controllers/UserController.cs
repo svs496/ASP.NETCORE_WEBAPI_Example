@@ -91,8 +91,7 @@ namespace TaskManager.API.Controllers
                 {
                     FirstName = user.FirstName.ToUpper(),
                     LastName = user.LastName.ToUpper(),
-                    EmployeeID = user.EmployeeID,
-                    TaskId = user.TaskId
+                    EmployeeID = user.EmployeeID
                 };
 
                 _dataRepository.Add(newUser);

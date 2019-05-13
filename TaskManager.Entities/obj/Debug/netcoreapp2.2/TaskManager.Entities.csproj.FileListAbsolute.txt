@@ -15,4 +15,3 @@ C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.AssemblyInfo.cs
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.dll
 C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.pdb
-C:\Users\sbhatia\Desktop\desktop items\1.FSE\Capsule_423050_BackEnd\TaskManager.Entities\obj\Debug\netcoreapp2.2\TaskManager.Entities.csprojAssemblyReference.cache

@@ -26,7 +26,6 @@ namespace TaskManager.Entities
         [Column(TypeName = "char(6)")]
         public string EmployeeID { get; set; }
 
-        public long TaskId { get; set; }
         public Task Task { get; set; }
 
     }

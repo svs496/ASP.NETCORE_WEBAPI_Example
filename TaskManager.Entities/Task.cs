@@ -45,6 +45,7 @@ namespace TaskManager.Entities
         public long ProjectId { get; set; }
         public Project Project { get; set; }
 
+        public long UserId { get; set; }
         public User User { get; set; }
     }
 
