@@ -137,8 +137,34 @@ namespace TaskManager.API.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(long id)
         {
+            try
+            {
+
+               User user = _dataRepository.Get(id);
+
+                if (user == null)
+                {
+                    _logger.LogInfo($"Inside Delete : {id} not found");
+                    return NotFound("The project record couldn't be found.");
+                }
+
+
+                //// DO do not delete Task which has child
+                //if (_dataRepository.ChildTaskExits(id))
+                //{
+                //    //
+                //}
+
+                _dataRepository.Delete(user);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Delete API Call failed: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
         }
     }
 }
