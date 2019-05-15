@@ -127,10 +127,9 @@ namespace TaskManager.API.Controllers
                 };
 
                 _dataRepository.Add(newProj);
-                return CreatedAtRoute(
-                      "Get",
-                      new { Id = newProj.ProjectId },
-                      newProj);
+
+                return CreatedAtAction(nameof(Post), new { id = newProj.UserId }, newProj);
+
             }
             catch (Exception ex)
             {
