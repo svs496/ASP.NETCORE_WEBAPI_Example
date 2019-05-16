@@ -38,7 +38,7 @@ namespace TaskManager.DataLayer
         {
             return _context.Projects.AsNoTracking()
                 .Include(k =>k.User)
-                  .Where(e => e.ProjectId == id).FirstOrDefault();
+                .Where(e => e.ProjectId == id).FirstOrDefault();
         }
 
         public IEnumerable<Project> GetAll()
@@ -46,7 +46,7 @@ namespace TaskManager.DataLayer
             return _context.Projects
                 .Include(p => p.User)
                 .Include(q => q.Tasks)
-                .AsNoTracking().ToList();
+                .AsNoTracking().ToList().OrderBy(p => p.ProjectName);
         }
 
         public IEnumerable<Project> GetParentTasks()

@@ -42,7 +42,8 @@ namespace TaskManager.DataLayer
 
         public IEnumerable<User> GetAll()
         {
-            return _context.Users.AsNoTracking().ToList();
+            return _context.Users.AsNoTracking()
+                .OrderBy(a => a.FirstName).ToList();
         }
 
         public IEnumerable<User> GetParentTasks()
