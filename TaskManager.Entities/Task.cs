@@ -33,8 +33,12 @@ namespace TaskManager.Entities
 
         [NotMapped]
         public string ParentTaskName { get; set; }
+        [NotMapped]
+        public string ProjectName { get; set; }
+        [NotMapped]
+        public string UserName { get; set; }
 
-       
+
         public DateTime CreateTime { get; set; }
 
        

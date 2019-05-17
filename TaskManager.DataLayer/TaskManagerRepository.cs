@@ -48,8 +48,16 @@ namespace TaskManager.DataLayer
 
         public Task Get(long id)
         {
-            return _context.Tasks.AsNoTracking()
+            Task task = _context.Tasks.AsNoTracking()
                   .Where(e => e.TaskId == id).FirstOrDefault();
+
+            if (task != null)
+            {
+                task.ProjectName = task.ProjectId.HasValue ? _context.Projects.AsNoTracking().Where(p => p.ProjectId == task.ProjectId).Select(p => p.ProjectName).FirstOrDefault() : null;
+                task.UserName = task.UserId.HasValue ?  _context.Users.AsNoTracking().Where(p => p.UserId == task.UserId).Select(p => p.FirstName + " " + p.LastName).FirstOrDefault() :null;
+                task.ParentTaskName = task.ParentTaskId.HasValue? _context.Tasks.AsNoTracking().Where(p => p.TaskId == task.ParentTaskId).Select(p => p.TaskName).FirstOrDefault():null;
+            }
+            return task;
         }
 
 
