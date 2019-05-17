@@ -10,8 +10,8 @@ using TaskManager.DataLayer;
 namespace TaskManager.DataLayer.Migrations
 {
     [DbContext(typeof(ProjectTaskManagerContext))]
-    [Migration("20190513163306_UpdateTaskUserFK")]
-    partial class UpdateTaskUserFK
+    [Migration("20190517062823_TaskUpdate")]
+    partial class TaskUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,12 @@ namespace TaskManager.DataLayer.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("date");
 
+                    b.Property<long?>("UserId")
+                        .HasColumnName("ManagerId");
+
                     b.HasKey("ProjectId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Projects");
                 });
@@ -50,22 +55,20 @@ namespace TaskManager.DataLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreateTime")
+                    b.Property<DateTime>("CreateTime");
+
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("date");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime?>("ModifyDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifyDate");
 
                     b.Property<long?>("ParentTaskId");
 
                     b.Property<int?>("Priority");
 
-                    b.Property<long>("ProjectId");
+                    b.Property<long?>("ProjectId");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("date");
 
                     b.Property<int?>("Status");
@@ -74,14 +77,13 @@ namespace TaskManager.DataLayer.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<long>("UserId");
+                    b.Property<long?>("UserId");
 
                     b.HasKey("TaskId");
 
                     b.HasIndex("ProjectId");
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tasks");
                 });
@@ -108,17 +110,22 @@ namespace TaskManager.DataLayer.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("TaskManager.Entities.Project", b =>
+                {
+                    b.HasOne("TaskManager.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("TaskManager.Entities.Task", b =>
                 {
                     b.HasOne("TaskManager.Entities.Project", "Project")
                         .WithMany("Tasks")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ProjectId");
 
                     b.HasOne("TaskManager.Entities.User", "User")
-                        .WithOne("Task")
-                        .HasForeignKey("TaskManager.Entities.Task", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

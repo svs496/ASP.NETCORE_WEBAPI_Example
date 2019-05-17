@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManager.DataLayer;
 
 namespace TaskManager.DataLayer.Migrations
 {
     [DbContext(typeof(ProjectTaskManagerContext))]
-    [Migration("20190513193410_SetNullsinTaskTable")]
-    partial class SetNullsinTaskTable
+    partial class ProjectTaskManagerContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +37,12 @@ namespace TaskManager.DataLayer.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("date");
 
+                    b.Property<long?>("UserId")
+                        .HasColumnName("ManagerId");
+
                     b.HasKey("ProjectId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Projects");
                 });
@@ -50,14 +53,12 @@ namespace TaskManager.DataLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreateTime")
+                    b.Property<DateTime>("CreateTime");
+
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("date");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("date");
-
-                    b.Property<DateTime?>("ModifyDate")
-                        .HasColumnType("date");
+                    b.Property<DateTime?>("ModifyDate");
 
                     b.Property<long?>("ParentTaskId");
 
@@ -65,7 +66,7 @@ namespace TaskManager.DataLayer.Migrations
 
                     b.Property<long?>("ProjectId");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("date");
 
                     b.Property<int?>("Status");
@@ -80,9 +81,7 @@ namespace TaskManager.DataLayer.Migrations
 
                     b.HasIndex("ProjectId");
 
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasFilter("[UserId] IS NOT NULL");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Tasks");
                 });
@@ -109,6 +108,13 @@ namespace TaskManager.DataLayer.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("TaskManager.Entities.Project", b =>
+                {
+                    b.HasOne("TaskManager.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("TaskManager.Entities.Task", b =>
                 {
                     b.HasOne("TaskManager.Entities.Project", "Project")
@@ -116,8 +122,8 @@ namespace TaskManager.DataLayer.Migrations
                         .HasForeignKey("ProjectId");
 
                     b.HasOne("TaskManager.Entities.User", "User")
-                        .WithOne("Task")
-                        .HasForeignKey("TaskManager.Entities.Task", "UserId");
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

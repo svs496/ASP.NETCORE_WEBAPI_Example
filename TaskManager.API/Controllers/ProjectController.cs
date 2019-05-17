@@ -25,8 +25,8 @@ namespace TaskManager.API.Controllers
             _dataRepository = Repository;
         }
 
-        // GET: api/Project
-        [HttpGet]
+        //GET: api/Project
+       [HttpGet]
         public IActionResult Get()
         {
             try
@@ -42,6 +42,10 @@ namespace TaskManager.API.Controllers
                 return StatusCode(500, "Internal server error");
             }
         }
+
+
+
+
 
         // GET: api/Project/5
         [HttpGet("{id}")]

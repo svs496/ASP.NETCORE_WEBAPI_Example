@@ -32,12 +32,14 @@ namespace TaskManager.DataLayer
             return _context.Tasks
                 .Select (m => new Task { TaskId = m.TaskId,
                                          ParentTaskId = m.ParentTaskId,
-                                         EndDate = m.EndDate.Date,
+                                         EndDate = m.EndDate.HasValue  ?  m.EndDate.Value.Date : (DateTime?)null,
                                          TaskName = m.TaskName,
                                          Priority = m.Priority,
-                                         StartDate = m.StartDate.Date,
+                                         StartDate = m.StartDate.HasValue ? m.StartDate.Value.Date : (DateTime?)null,
                                          Status = m.Status,
                                          CreateTime = m.CreateTime,  
+                                         UserId = m.UserId,
+                                         ProjectId = m.ProjectId,
                                          ParentTaskName = query.Where (p => p.TaskId == m.ParentTaskId).Select (p => p.TaskName).FirstOrDefault() })
                 .OrderByDescending( s => s.CreateTime).ThenByDescending (z => z.ModifyDate)
                 .AsNoTracking()

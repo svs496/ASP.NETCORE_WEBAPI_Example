@@ -44,8 +44,8 @@ namespace TaskManager.DataLayer
         public IEnumerable<Project> GetAll()
         {
             return _context.Projects
-                .Include(p => p.User)
-                .Include(q => q.Tasks)
+                .Include(p => p.Tasks)
+                .Include(q => q.User)
                 .AsNoTracking().ToList().OrderBy(p => p.ProjectName);
         }
 

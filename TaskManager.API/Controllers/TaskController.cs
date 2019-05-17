@@ -87,21 +87,18 @@ namespace TaskManager.API.Controllers
                 //Map is needed as input param has taskId null
                 Entities.Task newTaskToAdd = new Entities.Task
                 {
-                    EndDate = task.EndDate.Date,
+                    EndDate = task.EndDate.HasValue ? task.EndDate.Value.Date : (DateTime?)null,
                     ParentTaskId = task.ParentTaskId,
                     Priority = task.Priority,
-                    StartDate = task.StartDate.Date,
+                    StartDate = task.StartDate.HasValue ? task.StartDate.Value.Date : (DateTime?)null,
                     Status = task.Status,
-                    TaskName = task.TaskName,
+                    TaskName = task.TaskName.ToUpper(),
                     ProjectId = task.ProjectId,
                     UserId = task.UserId
                 };
 
                 _dataRepository.Add(newTaskToAdd);
-                return CreatedAtRoute(
-                      "Get",
-                      new { Id = newTaskToAdd.TaskId },
-                      newTaskToAdd);
+                return CreatedAtAction(nameof(Post), new { id = newTaskToAdd.TaskId }, newTaskToAdd);
             }
             catch (Exception ex)
             {

@@ -10,8 +10,8 @@ using TaskManager.DataLayer;
 namespace TaskManager.DataLayer.Migrations
 {
     [DbContext(typeof(ProjectTaskManagerContext))]
-    [Migration("20190510183933_AddFKRelationsips")]
-    partial class AddFKRelationsips
+    [Migration("20190517025636_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,7 +39,12 @@ namespace TaskManager.DataLayer.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("date");
 
+                    b.Property<long?>("UserId")
+                        .HasColumnName("ManagerId");
+
                     b.HasKey("ProjectId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Projects");
                 });
@@ -53,7 +58,7 @@ namespace TaskManager.DataLayer.Migrations
                     b.Property<DateTime>("CreateTime")
                         .HasColumnType("date");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("date");
 
                     b.Property<DateTime?>("ModifyDate")
@@ -63,9 +68,9 @@ namespace TaskManager.DataLayer.Migrations
 
                     b.Property<int?>("Priority");
 
-                    b.Property<long>("ProjectId");
+                    b.Property<long?>("ProjectId");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("date");
 
                     b.Property<int?>("Status");
@@ -74,16 +79,22 @@ namespace TaskManager.DataLayer.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
+                    b.Property<long?>("UserId");
+
                     b.HasKey("TaskId");
 
                     b.HasIndex("ProjectId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique()
+                        .HasFilter("[UserId] IS NOT NULL");
 
                     b.ToTable("Tasks");
                 });
 
             modelBuilder.Entity("TaskManager.Entities.User", b =>
                 {
-                    b.Property<long>("ProjectId")
+                    b.Property<long>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -98,30 +109,27 @@ namespace TaskManager.DataLayer.Migrations
                         .IsRequired()
                         .HasMaxLength(40);
 
-                    b.Property<long>("TaskId");
-
-                    b.HasKey("ProjectId");
-
-                    b.HasIndex("TaskId")
-                        .IsUnique();
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("TaskManager.Entities.Project", b =>
+                {
+                    b.HasOne("TaskManager.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("TaskManager.Entities.Task", b =>
                 {
                     b.HasOne("TaskManager.Entities.Project", "Project")
                         .WithMany("Tasks")
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
+                        .HasForeignKey("ProjectId");
 
-            modelBuilder.Entity("TaskManager.Entities.User", b =>
-                {
-                    b.HasOne("TaskManager.Entities.Task", "Task")
-                        .WithOne("User")
-                        .HasForeignKey("TaskManager.Entities.User", "TaskId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("TaskManager.Entities.User", "User")
+                        .WithOne("Task")
+                        .HasForeignKey("TaskManager.Entities.Task", "UserId");
                 });
 #pragma warning restore 612, 618
         }

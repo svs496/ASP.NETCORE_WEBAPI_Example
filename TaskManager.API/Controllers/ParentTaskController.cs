@@ -27,7 +27,7 @@ namespace TaskManager.API.Controllers
         public IActionResult GetParentTasks()
         {
             try
-            {
+         {
                 _logger.LogInfo("Inside GetParentTask.");
                 IEnumerable<Entities.Task> parentTasks = _dataRepository.GetParentTasks();
                 return Ok(parentTasks);

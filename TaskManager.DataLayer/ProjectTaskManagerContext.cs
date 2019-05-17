@@ -19,7 +19,7 @@ namespace TaskManager.DataLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+           
 
         }
     }
