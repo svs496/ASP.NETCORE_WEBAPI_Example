@@ -52,7 +52,17 @@ namespace TaskManager.DataLayer
                   .Where(e => e.TaskId == id).FirstOrDefault();
         }
 
-        public void Add(Task entity)
+
+        public IEnumerable<Task> GetListById(long id)
+        {
+            List<Task> tasks = GetAll().ToList();
+
+            return tasks
+                 .Where(e => e.ProjectId == id);
+        }
+
+
+            public void Add(Task entity)
         {
             entity.CreateTime = DateTime.Now;
             _context.Tasks.Add(entity);

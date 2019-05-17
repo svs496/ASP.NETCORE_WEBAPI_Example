@@ -49,6 +49,11 @@ namespace TaskManager.DataLayer
                 .AsNoTracking().ToList().OrderBy(p => p.ProjectName);
         }
 
+        public IEnumerable<Project> GetListById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Project> GetParentTasks()
         {
             throw new NotImplementedException();

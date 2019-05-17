@@ -15,5 +15,7 @@ namespace TaskManager.Contracts
 
         bool ChildTaskExits(long taskId);
 
+        IEnumerable<TEntity> GetListById(long id);
+
     }
 }

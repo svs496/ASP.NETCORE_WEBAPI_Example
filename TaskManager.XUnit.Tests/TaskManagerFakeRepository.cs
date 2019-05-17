@@ -90,6 +90,11 @@ namespace TaskManager.XUnit.Tests
             return _tasks;
         }
 
+        public IEnumerable<Task> GetListById(long id)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Task> GetParentTasks()
         {
             return _tasks.Select(p => new Task { TaskId = p.TaskId, TaskName = p.TaskName })

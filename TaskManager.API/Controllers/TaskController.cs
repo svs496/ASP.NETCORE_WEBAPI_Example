@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TaskManager.API.Controllers
 {
-    [Route("api/task")]
+    //[Route("api/task")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class TaskController : ControllerBase
     {
@@ -29,6 +30,23 @@ namespace TaskManager.API.Controllers
             {
                 _logger.LogInfo("Inside Get All API Call.");
                 IEnumerable<Entities.Task> tasks = _dataRepository.GetAll();
+                return Ok(tasks);
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError($"GetAll API Call failed: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetTasksByProjectId(long id)
+        {
+            try
+            {
+                _logger.LogInfo("Inside Get All API Call.");
+                IEnumerable<Entities.Task> tasks = _dataRepository.GetListById(id);
                 return Ok(tasks);
             }
             catch (Exception ex)
@@ -132,6 +150,25 @@ namespace TaskManager.API.Controllers
             {
 
                 _logger.LogError($"Put API Call failed: {ex}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
+        // GET api/Task
+        [HttpGet]
+        public IActionResult GetParentTasks()
+        {
+            try
+            {
+                _logger.LogInfo("Inside GetParentTask.");
+                IEnumerable<Entities.Task> parentTasks = _dataRepository.GetParentTasks();
+                return Ok(parentTasks);
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError($"GetParentTask API Call failed: {ex}");
                 return StatusCode(500, "Internal server error");
             }
         }

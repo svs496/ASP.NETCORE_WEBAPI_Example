@@ -46,6 +46,11 @@ namespace TaskManager.DataLayer
                 .OrderBy(a => a.FirstName).ToList();
         }
 
+        public IEnumerable<User> GetListById(long id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<User> GetParentTasks()
         {
             throw new System.NotImplementedException();
