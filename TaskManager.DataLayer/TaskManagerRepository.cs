@@ -40,6 +40,7 @@ namespace TaskManager.DataLayer
                                          CreateTime = m.CreateTime,  
                                          UserId = m.UserId,
                                          ProjectId = m.ProjectId,
+                                         IsParentTask = m.IsParentTask,
                                          ParentTaskName = query.Where (p => p.TaskId == m.ParentTaskId).Select (p => p.TaskName).FirstOrDefault() })
                 .OrderByDescending( s => s.CreateTime).ThenByDescending (z => z.ModifyDate)
                 .AsNoTracking()

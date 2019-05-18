@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 using System.Text;
 
 namespace TaskManager.Entities
@@ -37,6 +38,18 @@ namespace TaskManager.Entities
         [Column("ManagerId")]
         public long? UserId { get; set; }
         public User User { get; set; }
+
+        [NotMapped]
+        public int CompletedTaskCount
+        {
+            get
+            {
+                if (Tasks != null && Tasks.Count() > 0)
+                    return Tasks.Where(p => p.Status == Statuses.Completed).Count();
+                else
+                    return 0;
+            }
+        }
 
     }
 }

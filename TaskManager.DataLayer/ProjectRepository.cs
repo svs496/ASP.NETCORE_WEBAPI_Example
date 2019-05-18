@@ -38,6 +38,7 @@ namespace TaskManager.DataLayer
         {
             return _context.Projects.AsNoTracking()
                 .Include(k =>k.User)
+                .Include(p => p.Tasks)
                 .Where(e => e.ProjectId == id).FirstOrDefault();
         }
 

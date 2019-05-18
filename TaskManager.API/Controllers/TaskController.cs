@@ -112,7 +112,8 @@ namespace TaskManager.API.Controllers
                     Status = task.Status,
                     TaskName = task.TaskName.ToUpper(),
                     ProjectId = task.ProjectId,
-                    UserId = task.UserId
+                    UserId = task.UserId,
+                    IsParentTask = task.IsParentTask
                 };
 
                 _dataRepository.Add(newTaskToAdd);
@@ -193,7 +194,7 @@ namespace TaskManager.API.Controllers
                 // DO do not delete Task which has child
                 if (_dataRepository.ChildTaskExits(id))
                 {
-                    return Conflict(new { customMessage = $" Delete Conflict. Task # '{id}' has child tasks." });
+                    return Conflict(new { customMessage = $" Delete Conflict. Task  '{task.TaskName}' has child tasks." });
                 }
                 
                 _dataRepository.Delete(task);
