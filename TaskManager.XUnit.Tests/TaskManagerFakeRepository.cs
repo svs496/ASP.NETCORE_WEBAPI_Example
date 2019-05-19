@@ -69,7 +69,7 @@ namespace TaskManager.XUnit.Tests
             _tasks.Add(entity);
         }
 
-        public bool ChildTaskExits(long taskId)
+        public bool CanDeleteEntity(long taskId)
         {
             return _tasks.Any(p => p.ParentTaskId == taskId);
         }

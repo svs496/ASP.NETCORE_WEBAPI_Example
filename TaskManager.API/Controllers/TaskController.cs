@@ -192,7 +192,7 @@ namespace TaskManager.API.Controllers
 
 
                 // DO do not delete Task which has child
-                if (_dataRepository.ChildTaskExits(id))
+                if (_dataRepository.CanDeleteEntity(id))
                 {
                     return Conflict(new { customMessage = $" Delete Conflict. Task  '{task.TaskName}' has child tasks." });
                 }

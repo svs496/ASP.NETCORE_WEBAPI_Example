@@ -33,6 +33,8 @@ namespace TaskManager.Entities
         [Range(0, 30)]
         public int? Priority { get; set; }
 
+        public bool IsSuspended { get; set; }
+
         public ICollection<Task> Tasks { get; set; }
 
         [Column("ManagerId")]

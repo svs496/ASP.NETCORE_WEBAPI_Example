@@ -23,9 +23,12 @@ namespace TaskManager.DataLayer
             _context.SaveChanges();
         }
 
-        public bool ChildTaskExits(long taskId)
+        public bool CanDeleteEntity(long Id)
         {
-            throw new NotImplementedException();
+            if (_context.Tasks.Any(p => p.ProjectId == Id && p.Status ==  Statuses.InProgress))
+                return true;
+
+            return false;
         }
 
         public void Delete(Project entity)

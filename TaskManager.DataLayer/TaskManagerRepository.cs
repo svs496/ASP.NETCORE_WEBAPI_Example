@@ -71,7 +71,7 @@ namespace TaskManager.DataLayer
         }
 
 
-            public void Add(Task entity)
+        public void Add(Task entity)
         {
             entity.CreateTime = DateTime.Now;
             _context.Tasks.Add(entity);
@@ -97,7 +97,7 @@ namespace TaskManager.DataLayer
                 .Distinct().OrderBy(k => k.TaskName).AsNoTracking().ToList();
         }
 
-        public bool ChildTaskExits(long taskId)
+        public bool CanDeleteEntity(long taskId)
         {
             if (_context.Tasks.Any(p => p.ParentTaskId == taskId))
                 return true;

@@ -90,6 +90,16 @@ namespace TaskManager.API.Controllers
                     return BadRequest("Id is null.");
                 }
 
+
+                if(project.IsSuspended)
+                {
+                    // Do not change status  of project to suspended it it has a In-orogress child task
+                    if (_dataRepository.CanDeleteEntity(id))
+                    {
+                        return Conflict(new { customMessage = $" Cannot Suspend. Project '{project.ProjectName}' has in-progress tasks." });
+                    }
+                }
+
                 _dataRepository.Update(project);
                 return NoContent();
             }
@@ -127,7 +137,8 @@ namespace TaskManager.API.Controllers
                     Priority = project.Priority,
                     StartDate = project.StartDate.Date,
                     ProjectName = project.ProjectName.ToUpper(),
-                    UserId = project.UserId
+                    UserId = project.UserId,
+                    IsSuspended = project.IsSuspended
                 };
 
                 _dataRepository.Add(newProj);
@@ -160,7 +171,7 @@ namespace TaskManager.API.Controllers
 
 
                 // DO do not delete Task which has child
-                if (_dataRepository.ChildTaskExits(id))
+                if (_dataRepository.CanDeleteEntity(id))
                 {
                    //
                 }

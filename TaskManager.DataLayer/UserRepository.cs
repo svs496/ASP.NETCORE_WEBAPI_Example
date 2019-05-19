@@ -23,9 +23,13 @@ namespace TaskManager.DataLayer
             _context.SaveChanges();
         }
 
-        public bool ChildTaskExits(long taskId)
+        public bool CanDeleteEntity(long id)
         {
-            throw new System.NotImplementedException();
+            //user is tagged to task or project than that user cannot be deleted.
+            if (_context.Tasks.Any(p => p.UserId == id) || _context.Projects.Any(p => p.UserId == id))
+                return true;
+
+            return false;
         }
 
         public void Delete(User entity)

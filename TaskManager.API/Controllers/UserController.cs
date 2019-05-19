@@ -150,12 +150,11 @@ namespace TaskManager.API.Controllers
                     return NotFound("The project record couldn't be found.");
                 }
 
-
-                //// DO do not delete Task which has child
-                //if (_dataRepository.ChildTaskExits(id))
-                //{
-                //    //
-                //}
+                // DO do not delete user if is associated to Task or project
+                if (_dataRepository.CanDeleteEntity(id))
+                {
+                    return Conflict(new { customMessage = $" Delete Conflict. User '{user.FirstName}' is associated with project or a task." });
+                }
 
                 _dataRepository.Delete(user);
                 return NoContent();

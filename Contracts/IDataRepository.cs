@@ -13,7 +13,7 @@ namespace TaskManager.Contracts
         void Delete(TEntity entity);
         IEnumerable<TEntity> GetParentTasks();
 
-        bool ChildTaskExits(long taskId);
+        bool CanDeleteEntity(long id);
 
         IEnumerable<TEntity> GetListById(long id);
 
