@@ -236,12 +236,12 @@ namespace TaskManager.XUnit.Tests
             IActionResult createdResponse = _controller.Post(testTask);
 
             // Assert
-            Assert.IsType<CreatedAtRouteResult>(createdResponse);
+            Assert.IsType<CreatedAtActionResult>(createdResponse);
 
         }
 
         [Fact]
-        public void Add_ValidObjectPassed_ReturnedResponseHasCreatedItem()
+        public void Add_TaskWithoutProjectAndUserIDPassed_ReturnedResponseHasCreatedItem()
         {
             // Arrange
             var testTask = new Task()
@@ -257,13 +257,42 @@ namespace TaskManager.XUnit.Tests
             };
 
             // Act
-            var createdResponse = _controller.Post(testTask) as CreatedAtRouteResult;
+            var createdResponse = _controller.Post(testTask) as CreatedAtActionResult;
             var item = createdResponse.Value as Task;
 
             // Assert
             Assert.IsType<Task>(item);
-            Assert.Equal("New Task from Test", item.TaskName);
+            Assert.Equal(testTask.TaskName.ToUpper(), item.TaskName);
         }
+
+        [Fact]
+        public void Add_TaskWithProjectAndUserIDPassed_ReturnedResponseHasCreatedItem()
+        {
+            // Arrange
+            var testTask = new Task()
+            {
+                TaskId = 1,
+                TaskName = "New Task from Test",
+                CreateTime = DateTime.Now,
+                Status = Statuses.InProgress,
+                ParentTaskId = 0,
+                Priority = 25,
+                EndDate = DateTime.Now.Date.AddDays(110),
+                StartDate = DateTime.Now.Date.AddDays(15),
+                ProjectId = 1,
+                UserId = 1
+            };
+
+            // Act
+            var createdResponse = _controller.Post(testTask) as CreatedAtActionResult;
+            var item = createdResponse.Value as Task;
+
+            // Assert
+            Assert.IsType<Task>(item);
+            Assert.Equal(testTask.ProjectId, item.ProjectId);
+        }
+
+
 
         [Fact]
         public void Delete_NotExistingTaskId_ReturnsNotFoundResponse()

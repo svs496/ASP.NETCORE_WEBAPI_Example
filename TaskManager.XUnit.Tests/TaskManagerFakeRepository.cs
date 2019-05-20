@@ -11,9 +11,29 @@ namespace TaskManager.XUnit.Tests
     {
 
         private readonly List<Task> _tasks;
+        private readonly List<Project> _projects;
+        private readonly List<User> _users;
 
         public TaskManagerFakeRepository()
         {
+            _users = new List<User>()
+            {
+                new User() {EmployeeID = "A12345", LastName = "BHATIA", FirstName ="SATYAM", UserId = 1 },
+                new User() {EmployeeID = "B12345", LastName = "KHAN", FirstName ="SALMAN",  UserId = 2 },
+                new User() {EmployeeID = "C12345", LastName = "DHONI", FirstName ="MAHI",  UserId = 3 },
+                new User() {EmployeeID = "D12345", LastName = "KOHLI", FirstName ="VIRAT",  UserId = 4 },
+                new User() {EmployeeID = "E12345", LastName = "SHARMA", FirstName ="KAPIL",  UserId = 5 }
+            };
+
+
+            _projects = new List<Project>()
+            {
+                new Project() {ProjectId = 1, ProjectName = "TEST PROJECT 1", StartDate = DateTime.Now, EndDate = DateTime.Now.AddDays(6), Priority = 30, IsSuspended = false, UserId = 2},
+                new Project() {ProjectId = 21, ProjectName = "ANGULAR PROJECT 1", StartDate = DateTime.Now.AddDays(2), EndDate = DateTime.Now.AddDays(11), Priority = 30, IsSuspended = false, UserId = 4},
+                new Project() {ProjectId = 31, ProjectName = "API PROJECT 1", StartDate = DateTime.Now.AddDays(1), EndDate = DateTime.Now.AddDays(5), Priority = 30, IsSuspended = false, UserId = 4},
+                new Project() {ProjectId = 41, ProjectName = "DEPLOY PROJECT 1", StartDate = DateTime.Now,EndDate = DateTime.Now.AddDays(10), Priority = 30, IsSuspended = true, UserId = 5},
+            };
+
             _tasks = new List<Task>()
             {
                 new Task(){
@@ -24,8 +44,11 @@ namespace TaskManager.XUnit.Tests
                 ParentTaskId = 0,
                 Priority = 25,
                 EndDate = DateTime.Now.Date.AddDays(110),
-                StartDate = DateTime.Now.Date.AddDays(15) },
-                 new Task() {
+                StartDate = DateTime.Now.Date.AddDays(15),
+                ProjectId = 21,
+                UserId =1
+                },
+                new Task() {
                 TaskId = 2,
                 TaskName = "Master Angular Task # 2",
                 CreateTime = DateTime.Now,
@@ -33,7 +56,9 @@ namespace TaskManager.XUnit.Tests
                 ParentTaskId = 0,
                 Priority = 30,
                 EndDate = DateTime.Now.Date.AddDays(15),
-                StartDate = DateTime.Now.Date },
+                StartDate = DateTime.Now.Date,
+                ProjectId = 31,
+                UserId =5},
                 new Task() {
                 TaskId = 3,
                 TaskName = "Child Task # 1",
@@ -42,7 +67,10 @@ namespace TaskManager.XUnit.Tests
                 ParentTaskId = 1,
                 Priority = 15,
                 EndDate = DateTime.Now.Date.AddDays(110),
-                StartDate = DateTime.Now.Date.AddDays(15) },
+                StartDate = DateTime.Now.Date.AddDays(15),
+                ProjectId = 1,
+                UserId = 4
+                },
                 new Task() { TaskId = 4,
                 TaskName = "Child Task # 2",
                 CreateTime = DateTime.Now,
@@ -50,7 +78,10 @@ namespace TaskManager.XUnit.Tests
                 ParentTaskId = 1,
                 Priority = 19,
                 EndDate = DateTime.Now.Date.AddDays(44),
-                StartDate = DateTime.Now.Date.AddDays(15) },
+                StartDate = DateTime.Now.Date.AddDays(15) ,
+                ProjectId = 1,
+                UserId = 4
+                },
                 new Task()  {
                 TaskId = 5,
                 TaskName = "Child of Master Task# 2",
@@ -59,7 +90,9 @@ namespace TaskManager.XUnit.Tests
                 ParentTaskId = 2,
                 Priority = 11,
                 EndDate = DateTime.Now.Date.AddDays(2),
-                StartDate = DateTime.Now.Date }
+                StartDate = DateTime.Now.Date,
+                ProjectId = 1,
+                UserId = 5}
             };
         }
 

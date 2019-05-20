@@ -24,7 +24,7 @@ namespace TaskManager.Integration.Tests
         public async Task Get_WhenCalled_ReturnsOkResultAsync()
         {
 
-            var httpResponse = await _client.GetAsync("/api/task");
+            var httpResponse = await _client.GetAsync("/api/task/get");
             // Must be successful.
             httpResponse.EnsureSuccessStatusCode();
 
@@ -38,7 +38,7 @@ namespace TaskManager.Integration.Tests
         [Fact]
         public async Task GetById_ExistingTaskId_MatchesTaskAsync()
         {
-            var httpResponse = await _client.GetAsync("/api/task/2");
+            var httpResponse = await _client.GetAsync("/api/task/get/2");
 
             httpResponse.EnsureSuccessStatusCode();
 
@@ -53,7 +53,7 @@ namespace TaskManager.Integration.Tests
         public async Task GetById_UnknownTaskId_ReturnsNotFoundResultAsync()
         {
             // Act
-            var notFoundResult = await _client.GetAsync("/api/task/299");
+            var notFoundResult = await _client.GetAsync("/api/task/get/299/");
 
             // Assert
             Assert.Equal("NotFound", notFoundResult.StatusCode.ToString());
@@ -66,7 +66,7 @@ namespace TaskManager.Integration.Tests
             // Arrange
             var request = new
             {
-                Url = "/api/task/1",
+                Url = "/api/task/put/1",
                 Body = new Entities.Task()
                 {
                     TaskId = 1,
@@ -86,14 +86,14 @@ namespace TaskManager.Integration.Tests
             httpResponse.EnsureSuccessStatusCode();
 
             //Get Task By Id and check if it is updated.
-            httpResponse = await _client.GetAsync("/api/task/1");
+            httpResponse = await _client.GetAsync("/api/task/get/1");
             
             httpResponse.EnsureSuccessStatusCode();
 
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var task = JsonConvert.DeserializeObject<Entities.Task>(stringResponse);
 
-            Assert.Equal("Update Master Task Test", task.TaskName);
+            Assert.Equal(request.Body.TaskName, task.TaskName);
 
         }
 
@@ -104,7 +104,7 @@ namespace TaskManager.Integration.Tests
             // Arrange
             var request = new
             {
-                Url = "/api/task/",
+                Url = "/api/task/post",
                 Body = new Entities.Task()
                 {
                     TaskName = "New task from Integeration",
@@ -130,7 +130,45 @@ namespace TaskManager.Integration.Tests
             var stringResponse = await response.Content.ReadAsStringAsync();
             var newtask = JsonConvert.DeserializeObject<Entities.Task>(stringResponse);
 
-            Assert.Equal(request.Body.TaskName, newtask.TaskName);
+            Assert.Equal(request.Body.TaskName.ToUpper(), newtask.TaskName);
+
+        }
+
+        [Fact]
+        public async Task Add_ValidObjectWithProjectAndUserId_ReturnsCreatedResponseAsync()
+        {
+            // Arrange
+            var request = new
+            {
+                Url = "/api/task/post",
+                Body = new Entities.Task()
+                {
+                    TaskName = "New task from Integeration",
+                    CreateTime = DateTime.Now,
+                    Status = Statuses.InProgress,
+                    ParentTaskId = 0,
+                    Priority = 5,
+                    EndDate = DateTime.Now.Date.AddDays(222),
+                    StartDate = DateTime.Now.Date.AddDays(223),
+                    ProjectId = 1,
+                    UserId = 1
+                }
+            };
+
+            // Act
+            var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+
+            // Assert
+            response.EnsureSuccessStatusCode();
+
+            // Assert
+            Assert.Equal("Created", response.StatusCode.ToString());
+
+            // check task created matches
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            var newtask = JsonConvert.DeserializeObject<Entities.Task>(stringResponse);
+
+            Assert.Equal(request.Body.TaskName.ToUpper(), newtask.TaskName);
 
         }
 
@@ -140,7 +178,7 @@ namespace TaskManager.Integration.Tests
             // Arrange
             var request = new
             {
-                Url = "/api/task/",
+                Url = "/api/task/post",
                 Body = new Entities.Task()
                 {
                     //TaskName = "New task from Integeration",
@@ -169,7 +207,7 @@ namespace TaskManager.Integration.Tests
             int notExistingId = 900;
 
             // Act
-            var badResponse = await _client.DeleteAsync("/api/task/" + notExistingId);
+            var badResponse = await _client.DeleteAsync("/api/task/delete/" + notExistingId);
 
             //Assert
             Assert.Equal("NotFound", badResponse.StatusCode.ToString());
@@ -183,7 +221,7 @@ namespace TaskManager.Integration.Tests
             int existingId = 1;
 
             // Act
-            var badResponse = await _client.DeleteAsync("/api/task/" + existingId);
+            var badResponse = await _client.DeleteAsync("/api/task/delete/" + existingId);
 
             //Assert
             Assert.Equal("Conflict", badResponse.StatusCode.ToString());
@@ -197,14 +235,14 @@ namespace TaskManager.Integration.Tests
             int existingId = 4;
             
             // Act
-            var badResponse = await _client.DeleteAsync("/api/task/" + existingId);
+            var badResponse = await _client.DeleteAsync("/api/task/delete/" + existingId);
 
             //Assert
             Assert.Equal("NoContent", badResponse.StatusCode.ToString());
 
             //check
             // Act
-            var notFoundResult = await _client.GetAsync("/api/task/4");
+            var notFoundResult = await _client.GetAsync("/api/task/get/4");
 
             // Assert
             Assert.Equal("NotFound", notFoundResult.StatusCode.ToString());
